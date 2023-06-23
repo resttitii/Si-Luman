@@ -1,0 +1,45 @@
+<!--digunakan untuk mengkonfigurasi pengujian unit dan pengujian fitur pada proyek PHP menggunakan PHPUnit -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Elemen root yang mengelilingi seluruh konfigurasi PHPUnit-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+
+<!--Elemen yang mendefinisikan kumpulan tes yang akan dijalankan-->
+    <testsuites>
+        <!--Elemen yang menentukan direktori di mana file tes berada-->
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+
+    <!--Elemen yang mengkonfigurasi laporan cakupan kode-->
+    <coverage>
+        <!--Elemen yang menentukan direktori yang akan dicakup dalam laporan cakupan-->
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+    </coverage>
+
+    <!--Elemen yang mengatur variabel lingkungan (environment variables) untuk pengujian-->
+    <php>
+        <!--env : Elemen yang mendefinisikan variabel lingkungan spesifik-->
+        <!--name : Atribut yang menentukan nama variabel lingkungan-->
+        <!--value : Atribut yang menentukan nilai variabel lingkungan-->
+        <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <!-- <env name="DB_CONNECTION" value="sqlite"/> -->
+        <!-- <env name="DB_DATABASE" value=":memory:"/> -->
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+    </php>
+</phpunit>

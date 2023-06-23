@@ -1,0 +1,56 @@
+#!/usr/bin/env php
+<?php
+//fix
+//skrip utama untuk menjalankan aplikasi Laravel melalui command-line interface (CLI)
+
+define('LARAVEL_START', microtime(true)); //definisi konstanta LARAVEL_START yang digunakan oleh framework Laravel untuk menghitung waktu mulai eksekusi aplikasi
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader
+| for our application. We just need to utilize it! We'll require it
+| into the script here so that we do not have to worry about the
+| loading of any of our classes manually. It's great to relax.
+|
+*/
+
+require __DIR__.'/vendor/autoload.php'; //untuk memuat autoloader yang dihasilkan oleh Composer. Autoloader ini bertanggung jawab untuk memuat kelas-kelas aplikasi secara otomatis saat dibutuhkan
+
+$app = require_once __DIR__.'/bootstrap/app.php'; //ntuk memuat file app.php yang terletak di dalam direktori bootstrap dan mengembalikan instance dari aplikasi Laravel. Instance aplikasi ini digunakan untuk menjalankan berbagai komponen dan fitur Laravel
+
+/*
+|--------------------------------------------------------------------------
+| Run The Artisan Application
+|--------------------------------------------------------------------------
+|
+| When we run the console application, the current CLI command will be
+| executed in this console and the response sent back to a terminal
+| or another output device for the developers. Here goes nothing!
+|
+*/
+
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class); //untuk membuat instance dari Kernel Console Laravel. Kernel Console bertanggung jawab untuk menangani perintah-perintah yang dijalankan melalui CLI
+
+//perintah untuk menangani perintah CLI yang diberikan sebagai input. Perintah tersebut diambil dari ArgvInput dan hasilnya dikirim ke ConsoleOutput. Status dari eksekusi perintah disimpan dalam variabel $status
+$status = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Once Artisan has finished running, we will fire off the shutdown events
+| so that any final work may be done by the application before we shut
+| down the process. This is the last thing to happen to the request.
+|
+*/
+
+$kernel->terminate($input, $status); // untuk mengakhiri aplikasi setelah selesai menjalankan perintah. Pada tahap ini, event-event penutup dijalankan untuk menyelesaikan pekerjaan akhir sebelum aplikasi berakhir
+
+exit($status); //status eksekusi perintah digunakan sebagai kode keluar dari skrip

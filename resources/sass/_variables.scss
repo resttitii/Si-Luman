@@ -1,0 +1,12 @@
+//fix
+
+// Body
+$body-bg: #f8fafc;
+//mengatur warna latar belakang => untuk elemen body
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+//mendefinisikan jenis font (font-family) yang digunakan untuk teks pada elemen-elemen dalam proyek
+//font yang dipilih adalah 'Nunito', yang merupakan nama font yang diimpor dari BunnyCDN Fonts. Jika font ini tidak tersedia, maka font sans-serif cadangan akan digunakan
+$font-size-base: 0.9rem; //mengatur ukuran teks (font-size) dasar untuk elemen-elemen dalam proyek
+$line-height-base: 1.6; //mengatur ketinggian baris (line-height) dasar untuk elemen-elemen dalam proyek

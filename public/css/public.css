@@ -1,0 +1,53 @@
+/*fix*/
+
+/*mengimpor gaya huruf dari Google Fonts. Gaya huruf yang diimpor adalah 'Poppins' dengan berbagai variasi bobot huruf (weight) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*mengatur gaya huruf untuk semua elemen dalam halaman menggunakan font 'Poppins' dan fallback font yaitu sans-serif. 
+scroll-behavior: smooth; digunakan untuk memberikan efek scrolling yang halus saat menggunakan anchor links (tautan jangkar) di halaman*/
+* {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/*mengatur elemen dengan kelas .bot-nav untuk tidak ditampilkan (display:none;). Biasanya digunakan untuk menyembunyikan elemen tertentu dari tampilan halaman*/
+.bot-nav {
+    display: none;
+}
+
+/*mengatur tampilan gaya scrollbar pada browser Chrome menggunakan prinsip selector pseudo-element ::-webkit-scrollbar. 
+Mengubah lebar scrollbar menjadi 10px, mengatur warna latar belakang background untuk bagian track, dan mengatur warna latar belakang background untuk bagian thumb saat dihover*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb { 
+    background: #888; 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #ddd; 
+}
+
+/*mengatur tampilan gaya untuk elemen-elemen di dalam carousel yang menggunakan library Owl Carousel. 
+Mengatur tampilan display menjadi flex, justify-content: center; dan align-items: center; digunakan untuk mengatur elemen-elemen carousel agar menjadi pusat di tengah-tengah*/
+.owl-carousel .owl-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: center;
+}
+
+/*mengatur ukuran font untuk elemen dengan kelas .dropdown-item menjadi 12px. 
+Biasanya digunakan untuk mengatur ukuran teks pada item-item dalam menu dropdown*/
+.dropdown-item {
+    font-size: 12px;
+}

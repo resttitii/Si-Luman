@@ -1,0 +1,15 @@
+//fix
+
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+//digunakan untuk mengimpor font Nunito dari BunnyCDN Fonts
+
+// Variables
+@import 'variables';
+//mengimpor file SCSS yang berisi variabel-variabel Sass yang digunakan dalam proyek
+//untuk mendefinisikan dan menggunakan variabel dalam file SCSS
+//sehingga memudahkan pengaturan kustomisasi tampilan
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+//mengimpor file SCSS dari framework Bootstrap
